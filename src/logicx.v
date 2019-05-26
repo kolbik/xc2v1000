@@ -5,7 +5,7 @@
 // 
 // Create Date:    21:10:50 05/21/2019 
 // Design Name: 
-// Module Name:    main 
+// Module Name:    logicx
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -29,7 +29,7 @@ module logicx
     output led_3
 );
 
-    assign led_0 =  btn_0;
+    assign led_0 = btn_0;
     assign led_1 = btn_1;
     assign led_2 = btn_0 & btn_1;
     assign led_3 = btn_0 | btn_1;
