@@ -18,18 +18,17 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module entry( PB_SWITCH, LED );
+module entry( PB_SWITCH, LED, SEG1);
 
 	input  [1:0] PB_SWITCH;
 	output [3:0] LED;
+	output [7:0] SEG1;
 
 wire [1:0] btn;
 wire [3:0] ledrnm0;
+wire [7:0] seg1rnm0;
 
-//reg  [7:0] regSeg1;
-
-//assign SEG1 = 8'hA5;
-//regSeg1 = FFh;
+reg  [3:0] seg1def = 0;
 
 
 IBUF  SW0 (.I(PB_SWITCH[0]), 
@@ -50,9 +49,21 @@ OBUF  LD2 (.I(ledrnm0[2]),
 OBUF  LD3 (.I(ledrnm0[3]), 
             .O(LED[3]));
 
-				
+OBUF  SEG10 (.I(seg1rnm0[0]), .O(SEG1[0]));
+OBUF  SEG11 (.I(seg1rnm0[1]), .O(SEG1[1]));
+OBUF  SEG12 (.I(seg1rnm0[2]), .O(SEG1[2]));
+OBUF  SEG13 (.I(seg1rnm0[3]), .O(SEG1[3]));
+OBUF  SEG14 (.I(seg1rnm0[4]), .O(SEG1[4]));
+OBUF  SEG15 (.I(seg1rnm0[5]), .O(SEG1[5]));
+OBUF  SEG16 (.I(seg1rnm0[6]), .O(SEG1[6]));
+OBUF  SEG17 (.I(seg1rnm0[7]), .O(SEG1[7]));
+
+always @(posedge btn[0]) begin
+	seg1def <= seg1def + 1;
+end
 
 logicx logicx1(btn[0], btn[1], ledrnm0[0], ledrnm0[1], ledrnm0[2], ledrnm0[3]);
+segdriver segdriver(seg1def, 1, seg1rnm0);
 
 
 endmodule
