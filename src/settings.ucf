@@ -1,0 +1,9 @@
+
+NET "LED<3>" LOC = "D9";
+NET "LED<2>" LOC = "C9";
+NET "LED<1>" LOC = "B9";
+NET "LED<0>" LOC = "A9";
+
+NET "PB_SWITCH<1>" LOC = "T10";
+NET "PB_SWITCH<0>" LOC = "R10";
+
