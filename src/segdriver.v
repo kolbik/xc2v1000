@@ -25,7 +25,7 @@ module segdriver( bcd, dot, seg1out );
 	
 	always @ (bcd or dot) 
 	begin
-		
+		seg1out[7:1] <= 7'b0000001;
 		case ( bcd )
 			0: seg1out[7:1] <= 7'b1111110;
 			1: seg1out[7:1] <= 7'b0110000;
@@ -37,7 +37,7 @@ module segdriver( bcd, dot, seg1out );
 			7: seg1out[7:1] <= 7'b1110000;
 			8: seg1out[7:1] <= 7'b1111111;
 			9: seg1out[7:1] <= 7'b1111011;
-			default: seg1out <= 7'b0000001;
+			//default: seg1out <= 7'b0000001;
 		endcase
    end
 endmodule

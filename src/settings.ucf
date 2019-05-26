@@ -1,4 +1,6 @@
 
+NET "CLK_40MHZ" LOC = "T9"; #Oscillator No. 2
+
 NET "LED<3>" LOC = "D9";
 NET "LED<2>" LOC = "C9";
 NET "LED<1>" LOC = "B9";
